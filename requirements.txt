@@ -1,1 +1,2 @@
-eventsourcing
+# eventsourcing
+eventsourcing @ git+ssh://git@github.com/johnbywater/eventsourcing@develop

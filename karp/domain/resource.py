@@ -1,12 +1,12 @@
 from uuid import uuid4
 
-from eventsourcing.domain.model.aggregate import AggregateRoot
+from eventsourcing.domain import Aggregate
 
 
-class Resource(AggregateRoot):
+class Resource(Aggregate):
     @classmethod
     def create(cls):
-        return cls.__create__(
+        return cls._create_(
             event_class=cls.Created,
             id=uuid4(),
         )
