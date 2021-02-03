@@ -71,7 +71,7 @@ lint-security-issues: install-dev
 	${INVENV} bandit -r -ll karp
 
 test: install-dev clean-pyc
-	${INVENV} pytest -vv tests/unit_tests
+	${INVENV} pytest -vv tests
 
 test-w-coverage: install-dev clean-pyc
 	${INVENV} pytest -vv --cov-config=setup.cfg --cov=karp --cov-report=term-missing tests
