@@ -1,5 +1,7 @@
-from uuid import UUID
+from uuid import UUID, uuid4
 from eventsourcing.application import Application
+
+from karp.domain.resource import Resource
 
 
 class KarpApplication(Application):
@@ -7,7 +9,13 @@ class KarpApplication(Application):
         raise ResourceNotFound(resource_id)
 
     def create_resource(self, *, name: str):
-        pass
+        resource = Resource.create(
+            name=name,
+        )
+        return resource.id
+
+    def list_resource(self):
+        return []
 
 
 class ResourceNotFound(Exception):

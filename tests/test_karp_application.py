@@ -1,4 +1,4 @@
-from uuid import uuid4
+from uuid import UUID, uuid4
 
 import pytest
 
@@ -12,6 +12,8 @@ def test_karp_application():
         app.get_resource(uuid4())
 
     # Create a resource
-    resource_id1 = app.create_resource(
-        name="Saldo"
-    )
+    resource_id1 = app.create_resource(name="Saldo")
+
+    assert isinstance(resource_id1, UUID)
+
+    assert resource_id1 in app.list_resource()
